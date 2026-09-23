@@ -20,7 +20,7 @@ app.get('/api/config', (_request, response) => {
     apiBaseUrl: getApiBaseUrl(),
     codespaceName: process.env.CODESPACE_NAME || null,
   })
-})
+}) 
 
 app.use('/api/users', usersRouter)
 app.use('/api/teams', teamsRouter)
