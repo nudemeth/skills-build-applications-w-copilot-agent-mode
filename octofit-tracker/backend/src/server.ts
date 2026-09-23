@@ -17,7 +17,7 @@ app.get('/api/health', (_request, response) => {
 
 app.get('/api/config', (_request, response) => {
   response.json({
-    apiBaseUrl: getApiBaseUrl(),
+    apiBaseUrl: "-8000.app.github.dev",
     codespaceName: process.env.CODESPACE_NAME || null,
   })
 }) 
