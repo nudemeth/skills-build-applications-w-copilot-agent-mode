@@ -1,6 +1,22 @@
-# React + Vite
+# Octofit Tracker frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The presentation tier is a React 19 and Vite application. It uses `react-router-dom` for resource navigation and calls the API through the Codespaces forwarded port.
+
+## Environment
+
+Define `VITE_CODESPACE_NAME` in `.env.local` before starting the frontend:
+
+```env
+VITE_CODESPACE_NAME=your-codespace-name
+```
+
+The API URL is built as `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/[component]/`. When the variable is unset, the app safely uses the same-origin `/api` path instead of requesting an `undefined` hostname.
+
+## Commands
+
+- `npm run dev` starts Vite.
+- `npm run build` creates a production build.
+- `npm run lint` checks the frontend source.
 
 Currently, two official plugins are available:
 
