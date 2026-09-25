@@ -1,0 +1,5 @@
+function ResourcePage({ title, description, state, columns, renderRow }) {
+  return <section className="resource-page"><div className="page-heading"><div><p className="eyebrow">Octofit tracker</p><h1>{title}</h1><p className="lede">{description}</p></div><span className="record-count">{state.items.length} records</span></div>{state.loading && <p className="state-message">Loading {title.toLowerCase()}...</p>}{state.error && <p className="state-message error">{state.error}</p>}{!state.loading && !state.error && state.items.length === 0 && <p className="state-message">No {title.toLowerCase()} to show yet.</p>}{!state.loading && !state.error && state.items.length > 0 && <div className="table-wrap"><table><thead><tr>{columns.map((column) => <th key={column}>{column}</th>)}</tr></thead><tbody>{state.items.map((item, index) => <tr key={item._id ?? item.id ?? index}>{renderRow(item)}</tr>)}</tbody></table></div>}{state.pagination && <p className="pagination-note">Showing page {state.pagination.page ?? state.pagination.currentPage ?? 1}{state.pagination.totalPages ? ` of ${state.pagination.totalPages}` : ''}</p>}</section>
+}
+
+export default ResourcePage
